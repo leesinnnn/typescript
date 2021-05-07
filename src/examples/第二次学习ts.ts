@@ -54,7 +54,7 @@ function getLength(n: number | string): number {
 interface interface1 {
   name: string,
   age: number,
-  [props: string]: any  // 如果这里是number就会报错
+  [props: string]: string | number  // 如果这里是number就会报错
 }
 
 const obj1: interface1 = {
