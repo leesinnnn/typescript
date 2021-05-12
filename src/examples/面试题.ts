@@ -71,7 +71,7 @@ type MyPick<T, K extends keyof T> = {
 
 // 记录类型
 type MyRecord<T extends any, K> = {
-  [key in T]: K
+  [key in keyof T]: K
 }
 
 // 剔除接口的某个属性类型
