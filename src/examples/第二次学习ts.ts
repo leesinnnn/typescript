@@ -91,7 +91,7 @@ function handleData(data: any): any {
 }
 
 // 泛型函数
-const func1 = <T>(value: T): T[] => {
+const func1 = <T>(value: T): T[] => { 
   return [value]
 }
 interface interface3 {
@@ -366,8 +366,12 @@ interface interface9 {
 }
 
 type keepFunction<T> = {
-  [K in keyof T]: T[K] extends Function ? T[K] : never
-}[keyof T]
+  [K in keyof T as (
+    T[K] extends Function ?
+      K:
+      never
+  )]: T[K]
+}
 
 type keepFunctionTest = keepFunction<interface9>
 
